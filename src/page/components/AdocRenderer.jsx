@@ -19,7 +19,7 @@ const AdocRenderer = () => {
       try {
         
         const baseUrl = import.meta.env.VITE_PUBLIC_URL || ''; 
-        console.log(baseUrl);
+      
         const ok = `${baseUrl}/psa/adocs/doc.adoc`;
 
         const response = await fetch(ok);
