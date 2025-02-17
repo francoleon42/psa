@@ -20,7 +20,7 @@ const AdocRenderer = () => {
         console.log(adocPath)
         const baseUrl = import.meta.env.VITE_PUBLIC_URL || ''; 
 
-        const response = await fetch(`${baseUrl}/adocs/psa.adoc`);
+        const response = await fetch(`${baseUrl}/adocs/doc.adoc`);
         if (!response.ok) {
           throw new Error('No se pudo cargar el archivo AsciiDoc.');
         }
