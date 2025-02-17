@@ -17,10 +17,12 @@ const AdocRenderer = () => {
   useEffect(() => {
     const fetchAdoc = async () => {
       try {
-        console.log(adocPath)
+        
         const baseUrl = import.meta.env.VITE_PUBLIC_URL || ''; 
+        console.log(baseUrl);
+        const ok = `${baseUrl}/psa/adocs/doc.adoc`;
 
-        const response = await fetch(`${baseUrl}/adocs/doc.adoc`);
+        const response = await fetch(ok);
         if (!response.ok) {
           throw new Error('No se pudo cargar el archivo AsciiDoc.');
         }

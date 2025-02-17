@@ -5,7 +5,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate('psa/render/psa.adoc');
+    navigate('render/doc.adoc');
   }, [navigate]);
 
   return null; 
