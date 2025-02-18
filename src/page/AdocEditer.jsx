@@ -31,7 +31,7 @@ const AsciiDocEditor = () => {
         setHtmlContent(html);
     }, [adocContent]);
 
-    // Manejar cambio en el contenido
+    
     const handleChange = (event) => {
         setAdocContent(event.target.value);
     };
@@ -39,8 +39,8 @@ const AsciiDocEditor = () => {
     const handleSave = async () => {
         try {
             const handle = await window.showSaveFilePicker({
-                suggestedName: 'doc.adoc', // Nombre sugerido para el archivo
-                startIn: 'documents', // Carpeta donde iniciar la selección
+                suggestedName: 'doc.adoc', 
+                startIn: 'documents', 
             });
     
             const writable = await handle.createWritable();
