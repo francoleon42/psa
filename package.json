@@ -2,7 +2,7 @@
   "name": "psa",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://francoleon42/psa/",
+  "homepage": "https://github.com/francoleon42/psa/",
   "type": "module",
   "scripts": {
     "dev": "vite",
