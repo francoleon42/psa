@@ -1,0 +1,199 @@
+.adoc-container {
+    font-family: 'Georgia', serif; /* Fuente elegante y tradicional */
+    background-color: #F5F5DC; /* Color suave y cálido, como el color de la tierra */
+    color: #3E2723; /* Color marrón oscuro para el texto */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave para un toque elegante */
+    overflow: auto;
+    line-height: 1.6;
+    max-width: 90%;
+    margin: 20px auto;
+  }
+  
+  .adoc-container h1,
+  .adoc-container h2,
+  .adoc-container h3,
+  .adoc-container h5,
+  .adoc-container h6 {
+    color: #6A4E23; /* Marrón suave para encabezados */
+    border-bottom: 2px solid #C69C6D; /* Línea de oro suave para dar elegancia */
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .adoc-container h1 {
+    font-size: 2.2rem;
+    color: #4B2E2A; /* Color marrón más profundo para el encabezado principal */
+  }
+  
+  .adoc-container h2 {
+    font-size: 1.8rem;
+    color: #6A4E23; /* Color cálido y terroso */
+  }
+  
+  .adoc-container h3 {
+    color: #6A4E23;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  .adoc-container h2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras sutiles */
+  }
+  
+  .adoc-container p {
+    margin-bottom: 15px;
+    color: #3E2723;
+    font-size: 1rem;
+  }
+  
+  .adoc-container ul {
+    margin-left: 25px;
+    list-style-type: disc;
+    color: #3E2723;
+  }
+  
+  .adoc-container ul li {
+    margin-bottom: 10px;
+  }
+  
+  .adoc-container pre {
+    background-color: #E8E8E8; /* Fondo suave de color claro */
+    color: #6A4E23; /* Texto en marrón oscuro */
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .adoc-container a {
+    color: #8D6E63; /* Enlaces en un color marrón suave */
+    text-decoration: none;
+  }
+  
+  .adoc-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .adoc-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .adoc-container th,
+  .adoc-container td {
+    border: 1px solid #D7CCC8; /* Borde suave, tono cálido */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .adoc-container th {
+    background-color: #C69C6D; /* Fondo cálido dorado para los encabezados */
+    color: #4B2E2A; /* Color oscuro para el texto en las cabeceras */
+  }
+  
+  .adoc-container blockquote {
+    background-color: #F4E1D2; /* Fondo suave, tipo pergamino */
+    border-left: 5px solid #6A4E23; /* Línea de borde en marrón profundo */
+    padding: 15px 20px;
+    margin: 20px 0;
+    color: #4B2E2A;
+    font-style: italic;
+    font-size: 1rem;
+  }
+  
+  .adoc-header {
+    background-color: #8D6E63; /* Fondo en un color cálido marrón */
+    padding: 15px 25px;
+    text-align: right;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .back-button {
+    background-color: #C69C6D; /* Fondo dorado */
+    color: #4B2E2A; /* Texto marrón oscuro */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  
+  /* Estilos responsive */
+  @media screen and (min-width: 200px) and (max-width: 699px) {
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: cover;
+      margin: 0 auto;
+      display: block;
+    }
+  
+    .adoc-container h1 {
+      font-size: 1.5rem;
+    }
+  
+    .adoc-container h2 {
+      font-size: 1.2rem;
+    }
+  
+    .adoc-container p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  
+    .adoc-container ul,
+    .adoc-container ol {
+      margin-left: 15px;
+      font-size: 0.9rem;
+    }
+  
+    .adoc-container table {
+      font-size: 0.8rem;
+      margin: 10px 0;
+    }
+  
+    .adoc-container th,
+    .adoc-container td {
+      padding: 6px;
+    }
+  
+    .adoc-container pre {
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+  
+    .adoc-container blockquote {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
+  
+    .adoc-container {
+      padding: 10px;
+      max-width: 95%;
+      margin: 10px auto;
+    }
+  
+    .back-button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+    .textarea{
+        color: #000;
+    }
+    .adoc-preview{
+        color: #000;
+    }
+  }
+  
