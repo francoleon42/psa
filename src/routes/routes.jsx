@@ -7,7 +7,7 @@ import AsciiDocEditor from "../page/AdocEditer";
 export const MyRoutes = () => {
   return (
 
-    <Router basename="/psa"> { }
+    <Router basename="/https://github.com/francoleon42/psa/"> { }
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/render/:adocPath" element={<AdocRenderer />} />
