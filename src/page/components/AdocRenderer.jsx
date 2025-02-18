@@ -38,7 +38,7 @@ const AdocRenderer = () => {
   }, [adocPath]);
 
   if (error) {
-    return <div className="error">{error}</div>;
+    return <div className="error">{error} No carga</div>;
   }
 
   return (
@@ -48,7 +48,6 @@ const AdocRenderer = () => {
         <button onClick={() => navigate('/')} className="back-button"> Volver al menu </button>
       </header> */}
       <div
-
         className="adoc-container"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
