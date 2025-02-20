@@ -13,7 +13,6 @@ const AdocRenderer = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   
-
   useEffect(() => {
     const fetchAdoc = async () => {
       try {
@@ -52,6 +51,7 @@ const AdocRenderer = () => {
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
       
+      <button onClick={() => navigate('../editer/doc.adoc')}>Editer</button>
 
 
     </div>
