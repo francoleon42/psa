@@ -119,15 +119,29 @@
 }
 
 .back-button {
-  background-color: #C69C6D; /* Fondo dorado */
-  color: #4B2E2A; /* Texto marrón oscuro */
-  padding: 10px 20px;
+  background: none;
+  color: #6A4E23; /* Marrón suave */
   border: none;
-  border-radius: 5px;
+  font-size: 2px; /* Más pequeño */
+  padding: 2px 4px; /* Reduce el padding */
   cursor: pointer;
-  font-size: 16px;
-  text-transform: uppercase;
+  margin: 2px;
+  border-radius: 3px;
+  transition: color 0.2s, transform 0.1s;
 }
+
+.back-button:hover {
+  color: #8D6E63;
+  transform: scale(1.05); /* Efecto sutil al pasar el mouse */
+}
+.camuflado{
+  margin-top: -30px;
+  margin-bottom: -5px;
+  margin-left: -10px;
+  font-size: 14px;
+  color:black;
+}
+
 
 /* Estilos responsive */
 @media screen and (min-width: 200px) and (max-width: 699px) {
@@ -185,8 +199,4 @@
     margin: 10px auto;
   }
 
-  .back-button {
-    font-size: 14px;
-    padding: 8px 15px;
-  }
 }

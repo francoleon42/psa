@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Asciidoctor from 'asciidoctor';
-import './AdocEditer.css';
+import './styles/AdocEditer.css';
 import { supabase } from '../../supabase';
+import { useNavigate } from 'react-router-dom';
 
 const asciidoctor = Asciidoctor();
 
 const AsciiDocEditor = () => {
+    const navigate = useNavigate();
+    const [passwordDocument, setPasswordDocument] = useState(null);
     const [adocContent, setAdocContent] = useState('');
     const [htmlContent, setHtmlContent] = useState('');
 
@@ -19,6 +22,7 @@ const AsciiDocEditor = () => {
 
                 const adocContent = data[0].texto;
                 setAdocContent(adocContent);
+                setPasswordDocument(data[0].password);
             } catch (error) {
                 console.error(error);
             }
@@ -37,7 +41,11 @@ const AsciiDocEditor = () => {
     };
 
     const handleSave = async () => {
-        console.log(adocContent);
+        const password = prompt('Ingrese la contraseña para guardar:');
+        if (password !== passwordDocument) {
+            alert('Contraseña incorrecta ❌');
+            return;
+        }
         try {
             const { error } = await supabase
                 .from('documento')
@@ -66,6 +74,9 @@ const AsciiDocEditor = () => {
             />
             <button style={{ color: '#000' }} onClick={handleSave} className="save-button">
                 Guardar Cambios
+            </button>
+            <button onClick={() => navigate('../render/doc.adoc')} className="back-button">
+                Volver a blog
             </button>
         </div>
     );
