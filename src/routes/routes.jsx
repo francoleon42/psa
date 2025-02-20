@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "../page/Home";
 import AdocRenderer from "../page/components/AdocRenderer";
-import AsciiDocEditor from "../page/AdocEditer";
+import AsciiDocEditor from "../page/components/AdocEditer";
 
 export const MyRoutes = () => {
   return (
