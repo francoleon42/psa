@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Asciidoctor from 'asciidoctor';
 import './AdocEditer.css';
+import { supabase } from '../../supabase';
 
 const asciidoctor = Asciidoctor();
 
@@ -8,16 +9,16 @@ const AsciiDocEditor = () => {
     const [adocContent, setAdocContent] = useState('');
     const [htmlContent, setHtmlContent] = useState('');
 
-    // Cargar contenido inicial del servidor al montar
     useEffect(() => {
         const fetchInitialDoc = async () => {
             try {
-                const baseUrl = import.meta.env.VITE_PUBLIC_URL || '';
-                const url = `${baseUrl}/psa/adocs/doc.adoc`; // Suponiendo que este archivo está en el servidor
-                const response = await fetch(url);
-                if (!response.ok) throw new Error('Error cargando documento inicial');
-                const text = await response.text();
-                setAdocContent(text);
+                const { data, error } = await supabase
+                    .from('documento')
+                    .select('*');
+                if (error) throw error;
+
+                const adocContent = data[0].texto;
+                setAdocContent(adocContent);
             } catch (error) {
                 console.error(error);
             }
@@ -25,33 +26,32 @@ const AsciiDocEditor = () => {
         fetchInitialDoc();
     }, []);
 
-    // Convertir contenido local a HTML
     useEffect(() => {
         const html = asciidoctor.convert(adocContent);
         setHtmlContent(html);
     }, [adocContent]);
 
-    
+
     const handleChange = (event) => {
         setAdocContent(event.target.value);
     };
 
     const handleSave = async () => {
+        console.log(adocContent);
         try {
-            const handle = await window.showSaveFilePicker({
-                suggestedName: 'doc.adoc', 
-                startIn: 'documents', 
-            });
-    
-            const writable = await handle.createWritable();
-            await writable.write(adocContent);
-            await writable.close();
-            alert('Archivo guardado correctamente');
-        } catch (error) {
-            console.error('Error al guardar el archivo:', error);
+            const { error } = await supabase
+                .from('documento')
+                .update({ texto: adocContent })
+                .eq('id', 1);
+
+            if (error) throw error;
+            alert('Documento guardado en Supabase ✅');
+        } catch (err) {
+            console.error('Error guardando en Supabase:', err);
+            alert('Error al guardar en la base de datos ❌');
         }
     };
-    
+
     return (
         <div className="adoc-container editor-container">
             <textarea

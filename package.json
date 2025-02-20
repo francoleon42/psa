@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.48.1",
     "asciidoctor": "^3.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

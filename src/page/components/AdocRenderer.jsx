@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Asciidoctor from 'asciidoctor';
 import { useParams, useNavigate } from 'react-router-dom';
-import './adocRenderer.css'; 
-
-
+import { supabase } from '../../supabase'; // Asegúrate de importar la configuración de Supabase
+import './adocRenderer.css';
 
 const asciidoctor = Asciidoctor();
 
@@ -12,20 +11,16 @@ const AdocRenderer = () => {
   const [htmlContent, setHtmlContent] = useState('Cargando...');
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    const fetchAdoc = async () => {
-      try {
-        
-        const baseUrl = import.meta.env.VITE_PUBLIC_URL || ''; 
-      
-        const ok = `${baseUrl}/psa/adocs/doc.adoc`;
 
-        const response = await fetch(ok);
-        if (!response.ok) {
-          throw new Error('No se pudo cargar el archivo AsciiDoc.');
-        }
-        const adocContent = await response.text();
+  useEffect(() => {
+    const fetchAdocFromDB = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('documento')
+          .select('*');
+        if (error) throw error;
+      
+        const adocContent = data[0].texto;
         const html = asciidoctor.convert(adocContent);
         setHtmlContent(html);
       } catch (err) {
@@ -33,7 +28,7 @@ const AdocRenderer = () => {
       }
     };
 
-    fetchAdoc();
+    fetchAdocFromDB();
   }, [adocPath]);
 
   if (error) {
@@ -42,18 +37,12 @@ const AdocRenderer = () => {
 
   return (
     <div>
-
-      {/* <header className="adoc-header">
-        <button onClick={() => navigate('/')} className="back-button"> Volver al menu </button>
-      </header> */}
       <div
         className="adoc-container"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
-      
+
       <button onClick={() => navigate('../editer/doc.adoc')}>Editer</button>
-
-
     </div>
   );
 };
