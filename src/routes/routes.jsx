@@ -11,7 +11,7 @@ export const MyRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/render/:adocPath" element={<AdocRenderer />} />
-        <Route path="/editer/:adocPath" element={<AsciiDocEditor />} />
+        <Route path="/editer/" element={<AsciiDocEditor />} />
       </Routes>
     </Router>
 
