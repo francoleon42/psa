@@ -38,7 +38,7 @@ const AdocRenderer = () => {
   }, [adocPath]);
 
   if (error) {
-    return <div className="error">{error} No carga....</div>;
+    return <div className="error">{error} No carga...</div>;
   }
 
   return (
